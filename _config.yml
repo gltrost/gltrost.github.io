@@ -1,9 +1,9 @@
 # Site
 title:              Greg Trost of New Mexico
-bio:                'For those interested in logic, bioinformatics and poetry'
-description:        "A blog of what I'm working on"
+bio:                'For those interested in logic, computational biology and poetry'
+description:        "A place to talk about some of my passions"
 locale:             en_US
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /computational_biology
 url: "" # the base hostname & protocol for your site
 
 # Comments
@@ -30,12 +30,12 @@ defaults:
     path: ''
     type: posts
   values:
-    permalink: "/blog/:title/"
+    permalink: "/computational_biology/:title/"
     layout: post
     author:
 
 # Jekyll
-permalink:          /blog/:title/
+permalink:          /computational_biology/:title/
 markdown:           kramdown
 highlighter:        rouge
 kramdown:
@@ -58,7 +58,7 @@ gems:
   - jekyll-paginate
 
 paginate: 6
-paginate_path: "/blog/page:num/"
+paginate_path: "/computational_biology/page:num/"
 
 jekyll-mentions:
     base_url: https://github.com
