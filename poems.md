@@ -1,5 +1,5 @@
 ---
-layout: computationalbiology
+layout: poems
 title: Greg Trost - Blog Page
 description: Where I Keep On Bloggin'
 sitemap:
