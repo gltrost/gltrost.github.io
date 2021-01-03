@@ -22,7 +22,7 @@
 					<nav id="nav">
 
             {% include nav.html %}
-						
+
 					</nav>
 
 				<!-- Main -->
@@ -32,29 +32,29 @@
             <header class="major">
               <h2><a href="#">Logic /\ Formal Methods</a></h2>
               <img src="/images/turing.jpg" alt="Dead Tree 5 Μinutes From Home" style="width: 700px; max-width: 100%; height: auto;">
-              <p> (Mathematical) Logic is the study of formal reasoning via mathematical tools. 
+              <p> (Mathematical) Logic is the study of formal reasoning via mathematical tools.
               	  I usually like to think of Logic as the Mathematics of Mathematics. A major
-              	  branch of Logic is Formal Methods (for Reasoning About Software and Hardware), which is a term that loosely describes various different approaches to try to, you guessed it, reason about software and hardware. For example, program-correctness or 
-              	  program-termination. 
+              	  branch of Logic is Formal Methods (for Reasoning About Software and Hardware), which is a term that loosely describes various different approaches to try to, you guessed it, reason about software and hardware. For example, program-correctness or
+              	  program-termination.
 			  </p>
             </header>
 						<p>
-							Most of my interests in Logic and Formal Methods revolve around 
-							Data-Flow Analysis, Abstract Interpretation, Model Checking and Type Theory. I also currently work professionally in Formal Methods! Lucky me!! That said, this blog is not about my professional work. Things posted here are meant to be after-hours research. 
+							Most of my interests in Logic and Formal Methods revolve around
+							Data-Flow Analysis, Abstract Interpretation, Model Checking and Type Theory. I also currently work professionally in Formal Methods! Lucky me!! That said, this blog is not about my professional work. Things posted here are meant to be after-hours research.
 						</p>
 						<p>
 							I'm also curious to see where Formal Methods can be used in Computational
 							Biology. Seeing as Computational Biology is by far dominated by Machine-
-							Learning (Logic's arch nemesis), there are bound to be areas where 
-							Formal Methods is overlooked in Computational Biology. Also, seeing how 
-							the main drawback of Machine Learning is a lack of semantics, Logic is 
-							sure to be of use. 
+							Learning (Logic's arch nemesis), there are bound to be areas where
+							Formal Methods is overlooked in Computational Biology. Also, seeing how
+							the main drawback of Machine Learning is a lack of semantics, Logic is
+							sure to be of use.
 						</p>
 
           </article>
 					<!-- Post -->
 					<section class="posts">
-						{% for post in site.posts %}
+						{% for post in site.postslogic %}
 						{% assign mod3 = forloop.index | modulo: 3 %}
 							<article>
 								<header>

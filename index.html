@@ -54,19 +54,19 @@ sitemap:
 								<header class="major">
 									<h2><a href="#">About Me</a></h2>
 									<p> I am a software developer and logician <br />
-                    currently splitting my time between 
+                    currently splitting my time between
                     New Mexico and Cambridge, MA. <br />
                     In my free time, I work on bioinformatics projects, <br />
                     and on music and poetry </p>
 								</header>
 								<a href="#" class="image main"><img src="{{ "/images/sandias.jpg" | absolute_url }}" alt="" /></a>
                 <p> Since I don't use Instagram or Facebook anymore, this site also acts as a quasi-social-media outlet for me. </p>
-                <p> If you're interested in bioinformatics and systems biology posts, you may also appreciate my <a href="https://github.com/gltrost/Microbiomics"> Microbiomics project </a>. </p> 
+                <p> If you're interested in bioinformatics and systems biology posts, you may also appreciate my <a href="https://github.com/gltrost/Microbiomics"> Microbiomics project </a>. </p>
 							</article>
 
 						<!-- Posts -->
 							<section class="posts">
-                {% for post in site.posts limit:3 %}
+                {% for post in site.postspoems limit:3 %}
                 {% assign mod3 = forloop.index | modulo: 3 %}
   								<article>
   									<header>
