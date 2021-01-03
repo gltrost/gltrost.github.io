@@ -28,7 +28,7 @@ slapform_thankyou_page: /thank-you
 defaults:
 - scope:
     path: ''
-    type: posts
+    type: postspoems
   values:
     permalink: "/computationalbiology/:title/"
     layout: post
