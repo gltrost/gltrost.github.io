@@ -40,15 +40,16 @@
             </header>
 						<p>
 							Most of my interests in Logic and Formal Methods revolve around
-							Data-Flow Analysis, Abstract Interpretation, Model Checking and Type Theory. 
-							I also currently work professionally in Formal Methods! Lucky me!! 
-							That said, this blog is not about my professional work. 
+							Data-Flow Analysis, Abstract Interpretation, Model Checking and Type Theory.
+							I also currently work professionally in Formal Methods! Lucky me!!
+							That said, this blog is not about my professional work.
 							Things posted here are meant to be after-hours research.
 						</p>
           </article>
 					<!-- Post -->
 					<section class="posts">
-						{% for post in site.postslogic %}
+						{% for post in site.posts %}
+						{% if post.type == "logic" %}
 						{% assign mod3 = forloop.index | modulo: 3 %}
 							<article>
 								<header>
@@ -60,13 +61,6 @@
 								<ul class="actions">
 									<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
 								</ul>
-							</article>
-							{% if mod3 == 0 %}
-							<article>
-								<header>
-									<h2><a href="#">Sponsored</a></h2>
-								</header>
-
 							</article>
 							{% endif %}
 						{% endfor %}

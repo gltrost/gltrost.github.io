@@ -73,7 +73,7 @@
 			}
 		}
 
-		> .postspoems {
+		> .posts {
 			@include flexgrid((
 				columns:			2,
 				gutters:			(_size(padding) * 4),

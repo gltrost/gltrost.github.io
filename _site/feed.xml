@@ -1,1 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-01-26T20:43:22-05:00</updated><id>/</id><title type="html">Greg Trost of New Mexico</title><subtitle>A place to talk about some of my passions</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2021-02-02T10:25:24-05:00</updated><id>/</id><title type="html">Greg Trost of New Mexico</title><subtitle>A place to talk about some of my passions</subtitle><entry><title type="html">Book Review: Microbial Endocrinology</title><link href="/blog/Book-Review-2/" rel="alternate" type="text/html" title="Book Review: Microbial Endocrinology" /><published>2021-01-24T00:00:00-05:00</published><updated>2021-01-24T00:00:00-05:00</updated><id>/blog/Book-Review-2</id><content type="html" xml:base="/blog/Book-Review-2/">&lt;h1 id=&quot;i-still-gotta-read-the-book&quot;&gt;I still gotta read the book!&lt;/h1&gt;</content><summary type="html">Do you have both the brains and the guts to read it?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/bio-book2.jpg" /></entry><entry><title type="html">Book Review: Statistical Analysis of Microbiome Data with R</title><link href="/blog/Book-Review-1/" rel="alternate" type="text/html" title="Book Review: Statistical Analysis of Microbiome Data with R" /><published>2021-01-24T00:00:00-05:00</published><updated>2021-01-24T00:00:00-05:00</updated><id>/blog/Book-Review-1</id><content type="html" xml:base="/blog/Book-Review-1/">&lt;h1 id=&quot;i-still-gotta-read-the-book&quot;&gt;I still gotta read the book!&lt;/h1&gt;</content><summary type="html">On a scale from 1 to Dan Knights' youtube series, where does it rate?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/bio-book1.jpg" /></entry><entry><title type="html">A Guide To Subfields in Formal Methods</title><link href="/blog/A-Guide-To-Formal-Methods/" rel="alternate" type="text/html" title="A Guide To Subfields in Formal Methods" /><published>2021-01-24T00:00:00-05:00</published><updated>2021-01-24T00:00:00-05:00</updated><id>/blog/A-Guide-To-Formal-Methods</id><content type="html" xml:base="/blog/A-Guide-To-Formal-Methods/">&lt;h1 id=&quot;what-are-all-the-major-areas-of-formal-methods-and-how-do-they-relate&quot;&gt;What are all the major areas of Formal Methods, and how do they relate?&lt;/h1&gt;
+
+&lt;p&gt;When I started majoring logic back in college, I was introduced to different
+topics of logic one-by-one as they came to me in different classes. That said,
+I regret there never being a moment when the heads of the department pulled
+me aside and explained to me the landscape of what I was studying. Here’s my
+attempt.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-i-assume-you-already-know&quot;&gt;What I assume you already know:&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A little bit of mathematical logic&lt;/li&gt;
+  &lt;li&gt;A little bit of functional programming and/or how types work&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;versions-of-semantics&quot;&gt;Versions of Semantics&lt;/h1&gt;
+
+&lt;h2 id=&quot;operational-semantics-algorithms-defined-as-output&quot;&gt;Operational Semantics: Algorithms defined as output&lt;/h2&gt;
+&lt;p&gt;Operational semantics treats semantics of a program as the result of just
+“running” the program, like you would run any program. So if you have some
+OCaml code &lt;code class=&quot;highlighter-rouge&quot;&gt;let f (x : int) : int = x * 2&lt;/code&gt;, then the “semantics” of, say,
+&lt;code class=&quot;highlighter-rouge&quot;&gt;f(7)&lt;/code&gt; is just &lt;code class=&quot;highlighter-rouge&quot;&gt;14&lt;/code&gt;.
+Something like &lt;code class=&quot;highlighter-rouge&quot;&gt;let g (x : int) : int = g(x + 1)&lt;/code&gt; would have undefined semantics
+for all values, since no input would halt. Another way of putting it is
+“The meaning of a term t can be taken to be the final state
+that the machine reaches when started with t as its initial state” (Pierce 32).
+So the final state of running &lt;code class=&quot;highlighter-rouge&quot;&gt;f(7)&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;14&lt;/code&gt;, where as &lt;code class=&quot;highlighter-rouge&quot;&gt;g(234)&lt;/code&gt; is undefined:&lt;/p&gt;
+
+&lt;h2 id=&quot;denotational-semantics-algorithms-defined-as-some-mathematical-function&quot;&gt;Denotational Semantics: Algorithms defined as some Mathematical function&lt;/h2&gt;
+&lt;p&gt;Suppose you have some function&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let exp1(int x, int y) : int =
+  let result = ref 1 in
+  while (!y &amp;gt; 1) do
+    let result = !result * x
+    decr y
+  done;
+  result
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;and another function&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let rec exp2(int x, int y) : int =
+  if (y == 1) then x else x * exp2(x,y-1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;and another function&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let exp3(int x, int y) : int =
+  case y of
+  | 0 -&amp;gt; 1
+  | 1 -&amp;gt; x
+  | 2 -&amp;gt; x * x
+  | 3 -&amp;gt; x * x * x
+  ...
+  | 4294967295 -&amp;gt; x * x * x * ... * x  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;These all have the semantic meaning for 64-bit signed integers in OCaml.
+Namely, they all represent the mathematical idea of exponentiation (with respect
+to 64-bit signed ints, at least).&lt;/p&gt;
+
+&lt;p&gt;So in that sense, the semantic meaning of these functions is the underlying
+function exp(x,y) = x^y.&lt;/p&gt;
+
+&lt;h2 id=&quot;axiomatic-semantics&quot;&gt;Axiomatic semantics&lt;/h2&gt;
+
+&lt;h1 id=&quot;different-theories&quot;&gt;Different Theories&lt;/h1&gt;
+
+&lt;h2 id=&quot;hoare-logic&quot;&gt;Hoare Logic&lt;/h2&gt;
+
+&lt;h2 id=&quot;model-checking&quot;&gt;Model Checking&lt;/h2&gt;
+
+&lt;h2 id=&quot;type-theory&quot;&gt;Type Theory&lt;/h2&gt;
+
+&lt;h2 id=&quot;dynamic-logic&quot;&gt;Dynamic Logic&lt;/h2&gt;</content><summary type="html">An attempt at formalizing formal methods</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/logic-book1.jpg" /></entry></feed>

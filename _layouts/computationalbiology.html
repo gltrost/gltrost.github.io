@@ -32,7 +32,7 @@
             <header class="major">
               <h2><a href="#">Computational Biology</a></h2>
               <img src="/images/meadow.jpg" alt="Dead Tree 5 Μinutes From Home" style="width: 900px; max-width: 100%; height: auto; ">
-              <p> Computation Biology, with its popular sub-areas Systems Biology and Bioinformatics,
+              <p> Computational Biology, with its popular sub-areas Systems Biology and Bioinformatics,
 		      is the application of computational methods to understand Biology.
 		      Within Computational Biology, I focus mainly on Microbiomics: the study of Microbiomes (like bacteria colonies in the gut).
 							</p>
@@ -58,9 +58,10 @@
 
 
           </article>
-					<!-- Post -->
-					<section class="postscomputationalbiology">
-						{% for post in site.postscomputationalbiology %}
+					<!-- Posts -->
+					<section class="posts">
+						{% for post in site.posts %}
+						{% if post.type == "bio" %}
 						{% assign mod3 = forloop.index | modulo: 3 %}
 							<article>
 								<header>
@@ -72,13 +73,6 @@
 								<ul class="actions">
 									<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
 								</ul>
-							</article>
-							{% if mod3 == 0 %}
-							<article>
-								<header>
-									<h2><a href="#">Sponsored</a></h2>
-								</header>
-
 							</article>
 							{% endif %}
 						{% endfor %}
